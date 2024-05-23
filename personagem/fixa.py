@@ -11,7 +11,7 @@ def espaco():
     cont.title( "continuacao")
     cont.geometry("716x900")
 
-    imag = Image.open("espaco.png")
+    imag = Image.open("./espaco.png")
     photo = ImageTk.PhotoImage(imag)
 
     canvasEspaco = Canvas(cont, width=imag.width, height=imag.height)
@@ -50,6 +50,9 @@ def espaco():
                 textocont.insert(END, cont['textocont'])
 
     cont.wait_window()
+
+
+
 def talentos():
     cont= Toplevel(fixa)
     cont.title( "talentos")
@@ -206,9 +209,6 @@ def salvar_fixa():
         pickle.dump(cont , f)
     print(cont)
 
-# def novas():
-#      espaco()
-#      magia()    
 def carregar():
    
     with open('informacoes.pickle', 'rb') as f:
@@ -219,8 +219,8 @@ def carregar():
             texto.delete("1.0", END)
             texto.insert(END, info[i])
     
-
-
+fixa.geometry("716x900")
+imag = Image.open("status.png")
 photo = ImageTk.PhotoImage(imag)
 
 canvasFixa = Canvas(fixa, width=imag.width, height=imag.height)
@@ -236,6 +236,7 @@ botao2.grid(column= 1, row= 2, )
 botao3 = Button(canvasFixa, text = "3", command=talentos)
 botao3.grid(column= 1, row= 3, )
 
+salvarFIXA = Button(canvasFixa, text = "salvar", command=salvar_fixa)
 salvarFIXA.grid(row=1, column= 3,padx=2, pady=3) 
 
 botao_carregar = Button(canvasFixa, text="Carregar", command=lambda: carregar())
@@ -244,23 +245,16 @@ botao_carregar.grid(row=2, column=3,padx=2, pady=3)
 botao_voltar= Button(canvasFixa, text= "fechar", command=lambda: sair_salvar())
 botao_voltar.grid(column= 2, row= 1,padx=2, pady=0)
 
-# nome e info
-# x= 51
-# y = 60
-# altura =  30
-# largura =174 
-lista= [51, 60, 30, 174]
-x,y,altura,largura = lista
+
 
 
 texto_NOME=  Text(canvasFixa)
-texto_NOME.place(x = x,y =y, width=largura, height= altura)
+texto_NOME.place(x = 51,y =60, width= 174, height=30)
 textoINFO=  Text(canvasFixa)
 textoINFO.place(x= 307, y= 40, width=360, height= 20)
 textoINFO2=  Text(canvasFixa)
 textoINFO2.place(x= 307, y= 75, width=360, height= 20)
 
-#status de cima pra baixo 
 textoF=  Text(canvasFixa)
 textoF.place(x= 39, y= 175, width=50, height= 25)
 textoPF=  Text(canvasFixa)
@@ -403,3 +397,4 @@ textoINTUICAO.place(x= 257, y= 375, width=30, height= 15)
 textos_fixas = [texto_NOME,textoINFO, textoINFO2, textoF,textoPF, textoD,textoPD,textoPC, textoI,textoPI, textoS,textoPS,textoCA,textoPCA,textoPer,textoSal,textoINSP,textoBonus,textoARM,textoINI,textoDES, textoPV,textoPVA,textoPVT,textoDV,textoSUS,textoFAL,textoCOBRE,textoPRATA,textoPE,textoOURO,textoPLATINA,textoESMERALDA,textoCOBALTO,textoDIA,textoESV,textoPRD,textoREF,textoIDIOMA,textoPER,textoEQUIP,textoATQ,textoATQ1,textoATQ2,textoATQ3,textoATQ4,textoINTUICAO, ]
 
 fixa.mainloop()
+

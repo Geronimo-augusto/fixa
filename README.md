@@ -17,7 +17,7 @@ Você pode instalar as dependências utilizando `pip`:
 ```bash
 pip install pillow
 ```
-## Arquivo: `personagens/main.py`
+## Arquivo: `personagens/nova_fixa.py`
 ### Código
 ```python
 import tkinter as tk
